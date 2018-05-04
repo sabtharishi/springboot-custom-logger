@@ -63,7 +63,7 @@ public class CustomSpanLogger implements  SpanLogger {
 			String traceIdString = span.traceIdString();
 			String spanName = span.getName();
 			
-			log.info("Stopped Span = trace-id={} span-id={} parent-id={} span-name={}", traceIdString, spanId, parentId, spanName);
+			log.info("Stopped Span = trace-id={} span-id={} parent-id={} span-name={} spanlogevents={}", traceIdString, spanId, parentId, spanName, span.logs());
 		 
 			MDC.put(Span.SPAN_ID_NAME, Span.idToHex(parent.getSpanId()));
 			MDC.put(Span.SPAN_EXPORT_NAME, String.valueOf(parent.isExportable()));
